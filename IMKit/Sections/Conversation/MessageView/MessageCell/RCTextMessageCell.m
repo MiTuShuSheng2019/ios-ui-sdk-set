@@ -159,14 +159,16 @@
     }
     
     if (self.model.messageDirection == MessageDirection_RECEIVE) {
-        [self.textLabel setTextColor:RCDynamicColor(@"text_primary_color", @"0x262626", @"0xffffffcc")];
+//        [self.textLabel setTextColor:RCDynamicColor(@"text_primary_color", @"0x262626", @"0xffffffcc")];
+        [self.textLabel setTextColor:UIColor.whiteColor];
         if ([RCKitUtility isRTL] && !self.destructTextImage.hidden) {
             self.textLabel.frame =  CGRectMake(DESTRUCT_TEXT_ICON_WIDTH / 2 + DESTRUCT_TEXT_ICON_WIDTH + TEXT_SPACE_LEFT, (bubbleHeight - labelSize.height) / 2, labelSize.width, labelSize.height);
         } else {
             self.textLabel.frame =  CGRectMake(TEXT_SPACE_LEFT, (bubbleHeight - labelSize.height) / 2, labelSize.width, labelSize.height);
         }
     } else {
-        [self.textLabel setTextColor:RCDynamicColor(@"text_primary_color", @"0x262626", @"0x040A0F")];
+//        [self.textLabel setTextColor:RCDynamicColor(@"text_primary_color", @"0x262626", @"0x040A0F")];
+        [self.textLabel setTextColor:RCDYCOLOR(0x222222, 0x222222)];
         self.textLabel.frame =  CGRectMake(TEXT_SPACE_LEFT, (bubbleHeight - labelSize.height) / 2, labelSize.width, labelSize.height);
     }
     
