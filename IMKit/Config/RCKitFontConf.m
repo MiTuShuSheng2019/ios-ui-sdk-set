@@ -52,6 +52,12 @@
 }
 
 - (UIFont *)fontOfSize:(CGFloat)size {
-    return [UIFont systemFontOfSize:size];
+    if (self.fontName.length > 0) {
+        return  [UIFont fontWithName:self.fontName size:size];
+    } else {
+        return [UIFont systemFontOfSize:size];
+    }
 }
+
+
 @end

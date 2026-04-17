@@ -27,6 +27,9 @@
 /// 极少数辅助说明，默认 fontSize 为 10 (gif 消息大小)
 @property (nonatomic, assign) CGFloat assistantLevel;
 
+/// 自定义字体名称，确保 该字体存在 主工程中
+@property (nonatomic, copy) NSString *fontName;
+
 /// firstLevel 的 font，默认 fontSize 为 18
 - (UIFont *)fontOfFirstLevel;
 
