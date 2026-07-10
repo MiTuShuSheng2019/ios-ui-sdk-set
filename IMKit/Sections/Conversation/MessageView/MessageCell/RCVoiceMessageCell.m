@@ -176,10 +176,16 @@ static RCMessageDirection s_previousMessageDirection;
     [self.voiceUnreadTagView removeFromSuperview];
     self.voiceUnreadTagView.image = nil;
     [self.voiceUnreadTagView setHidden:YES];
+    CGSize size = self.messageContentView.contentSize;
+    CGFloat voiceHeight = size.height;
     if (MessageDirection_RECEIVE == self.model.messageDirection) {
         CGFloat x = CGRectGetMaxX(self.messageContentView.frame) + 8;
+        if ([RCKitUtility isRTL]) {
+            x = CGRectGetMinX(self.messageContentView.frame) - 8 - voice_Unread_View_Width;
+        }
         if (NO == self.model.receivedStatusInfo.isListened) {
-            self.voiceUnreadTagView = [[RCBaseImageView alloc] initWithFrame:CGRectMake(x, self.messageContentView.frame.origin.y + (Voice_Height-voice_Unread_View_Width)/2, voice_Unread_View_Width, voice_Unread_View_Width)];
+            self.voiceUnreadTagView = [[RCBaseImageView alloc] initWithFrame:CGRectMake(x, self.messageContentView.frame.origin.y + (voiceHeight-voice_Unread_View_Width)/2, voice_Unread_View_Width, voice_Unread_View_Width)];
+            
             [self.voiceUnreadTagView setHidden:NO];
             [self.baseContentView addSubview:self.voiceUnreadTagView];
             self.voiceUnreadTagView.image = RCDynamicImage(@"conversation_msg_cell_voice_unread_img",@"voice_unread");
