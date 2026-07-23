@@ -220,8 +220,11 @@
 - (RCTipLabel *)tipMessageLabel{
     if (!_tipMessageLabel) {
         _tipMessageLabel = [RCTipLabel greyTipLabel];
-        _tipMessageLabel.backgroundColor = RCDynamicColor(@"common_background_color", @"0xc9c9c9", @"0x232323");
-        _tipMessageLabel.textColor = RCDynamicColor(@"text_secondary_color", @"0xffffff", @"0x707070");
+        _tipMessageLabel.backgroundColor = UIColor.clearColor;
+//        _tipMessageLabel.backgroundColor = RCDynamicColor(@"common_background_color", @"0xc9c9c9", @"0x232323");
+//        _tipMessageLabel.textColor = RCDynamicColor(@"text_secondary_color", @"0xffffff", @"0x707070");
+        _tipMessageLabel.font = [[RCKitConfig defaultConfig].font fontOfAnnotationLevel];
+        _tipMessageLabel.textColor = [[UIColor whiteColor] colorWithAlphaComponent:0.6];
         _tipMessageLabel.delegate = self;
         _tipMessageLabel.userInteractionEnabled = YES;
         _tipMessageLabel.marginInsets = UIEdgeInsetsMake(0.5f, 0.5f, 0.5f, 0.5f);
